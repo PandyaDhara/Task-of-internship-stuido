@@ -1,0 +1,26 @@
+Summary: In acunetix website has an endpoint that is vulnerable to an injection vulnerability - namely a reflected injection of JavaScript, also known as Reflected Cross Site Scripting (XSS). As per OWASP's definition: "Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites." 
+
+Vulnerability Type : Cross-site Scripting (XSS)
+Domain : http://vulnweb.com
+Sub-Domain : http://testasp.vulnweb.com/
+
+Description:
+Reflected XSS arises when an application takes some input from an HTTP request and embeds that input into the immediate response in an unsafe ways.
+
+Steps To Reproduce:
+1.) Go to http://testasp.vulnweb.com/
+2.) Click Search
+3.) On the search bar, enter payload:<script>alert(1)</script>
+4.) Click Search then XSS will trigger.
+
+Demonstration of the vulnerability:
+PoC : 
+
+Impact :
+With user interaction, an attacker could execute arbitrary JavaScript code in a victim's browser.
+This would allow an attacker to unwillingly make a victim:
+Perform any action in the identified endpoint
+View any information that the user is able to view
+Modify any information that the user is able to modify (not sure if applicable in this case)
+
+Mitigation : If you want to prevent your website to be vulnerable of cross-site scripting then you can just enable noscript on browser.
